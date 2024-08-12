@@ -1,14 +1,12 @@
 # CoderDojo磐田 スライド
 
-CoderDojo磐田で使用するスライドを公開しています。
-
-こちらのリンクからスライドの一覧を参照することができます。
+CoderDojo磐田で使用するスライドを公開しています。以下のリンクからスライドの一覧を参照することができます。
 
 https://coderdojo-iwata.github.io/slides/public/
 
 Markdownからスライドを作成できる[Marp](https://marp.app/)を使用しています。
 
-## [管理者向け] スライドの追加方法
+## スライドの追加方法
 
 1. `slides`ディレクトリ配下に必要なファイルを作成、配置します。  
     ```sh
