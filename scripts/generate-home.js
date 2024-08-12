@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // directory for GitHub Pages
-const docsDir = path.resolve(__dirname, "..", "docs");
+const docsDir = path.resolve(__dirname, "..", "public");
 
 const descSortedLinks = fs
   .readdirSync(docsDir)
