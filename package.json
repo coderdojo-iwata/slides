@@ -5,8 +5,9 @@
   "license": "WTFPL",
   "private": true,
   "scripts": {
-    "build": "rimraf docs && npm run -s deck",
+    "build": "rimraf docs && npm run -s deck && npm run -s home",
     "deck": "marp --no-stdin slides/* && mkdir -p docs && find ./slides -name '*.html' -exec mv {} docs/ \\; && ncp slides/assets docs/assets",
+    "home": "node scripts/generate-home.js",
     "start": "marp -ps ."
   },
   "devDependencies": {
