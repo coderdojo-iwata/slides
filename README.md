@@ -6,17 +6,23 @@ https://coderdojo-iwata.github.io/slides/
 
 スライドはMarkdownをinputに作成できる[Marp](https://marp.app/)を使用しています。
 
+各種UMLには[PlantUML](https://plantuml.com/)を使用しています。指定のディレクトリにMarkdownを配置しておき、ビルド時に自動でSVG変換できるようにしています。
+
 ## ディレクトリ構成
 
 ```
 .
-├── public     # GitHub Pages公開ファイル出力用（Repository管理対象外）
+├── public     # GitHub Pages成果物
 ├── plantuml   # PlantUML画像のinputとなるMarkdown
 ├── scripts    # 各種作業を効率化するためのスクリプト
 ├── slides     # スライドのinputとなるMarkdown
-|   └── assets # スライド用画像
-└── themes     # スライドのinputとなるMarkdown
+|   └── assets # アセットファイル（画像など）
+└── themes     # スライドのカスタムテーマCSS
 ```
+
+### カスタムテーマCSS
+
+https://marpit.marp.app/theme-css
 
 ## 使い方
 
@@ -30,7 +36,9 @@ https://coderdojo-iwata.github.io/slides/
 
 ### スライド生成方法
 
-`build`コマンドを実行することで`public`ディレクトリにスライドファイル一式を出力します。`plantuml`ディレクトリにMarkdownを配置しておくと、Markdownと同名のSVGを`assets`ディレクトリに出力します。
+`build`コマンドを実行することで`public`ディレクトリにスライドファイル一式、スライドリンク一覧にしたトップページを出力します。
+
+`plantuml`ディレクトリ内のMarkdownと同名のSVGを`assets`ディレクトリに出力します。（例: `diagram.md` -> `diagram.svg`）
 
  ```sh
  npm run build
@@ -38,7 +46,7 @@ https://coderdojo-iwata.github.io/slides/
 
 ### トップページのブラウザ表示
 
-`open`コマンドでスライドリンクの一覧を記載したトップページをブラウザ表示できます。
+`open`コマンドでトップページをブラウザ表示できます。
 
 ```sh
 npm run open
