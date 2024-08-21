@@ -18,14 +18,13 @@ fs.readdir(inputDir, (err, files) => {
     return;
   }
 
-  console.log(`Generating images from [${markdownNames}].`);
+  console.log(`Generating plantuml images from [${markdownNames}].`);
 
   Promise.all(
     markdownNames.map(
       (name) =>
         new Promise((resolve, reject) => {
-          const filePath = path.join(inputDir, name);
-          fs.readFile(filePath, "utf8", (err, data) => {
+          fs.readFile(path.join(inputDir, name), "utf8", (err, data) => {
             if (err) {
               console.error("Error reading file:", err);
               reject(err);
@@ -34,14 +33,12 @@ fs.readdir(inputDir, (err, files) => {
 
             const basename = path.basename(name, path.extname(name));
             const outputName = path.join(outputDir, `${basename}.png`);
-
-            var writeStream = fs.createWriteStream(outputName);
+            const writeStream = fs.createWriteStream(outputName);
 
             writeStream.on("finish", () => {
               console.log(`Image generated [${outputName}]`);
               resolve();
             });
-
             writeStream.on("error", (err) => {
               console.error("Error generating image:", err);
               reject(err);

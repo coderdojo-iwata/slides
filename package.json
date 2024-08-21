@@ -5,11 +5,12 @@
   "license": "WTFPL",
   "private": true,
   "scripts": {
-    "build": "rimraf public && npm run -s deck && npm run -s uml && npm run -s home",
-    "deck": "marp --no-stdin slides/* && mkdir -p public && find ./slides -name '*.html' -exec mv {} public/ \\; && ncp slides/assets public/assets",
-    "uml": "node scripts/generate-uml-images.js",
-    "home": "node scripts/generate-home.js",
-    "start": "marp -ps ."
+    "build": "rimraf public && npm run -s deck && npm run -s top && npm run -s open",
+    "plantuml": "node scripts/generate-plantuml-images.js",
+    "top": "node scripts/generate-top.js",
+    "deck": "marp --no-stdin slides/* && npm run -s plantuml && mkdir -p public && find ./slides -name '*.html' -exec mv {} public/ \\; && ncp slides/assets public/assets",
+    "start": "marp -ps .",
+    "open": "open public/index.html"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^3.4.0",
