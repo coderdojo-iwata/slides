@@ -32,7 +32,7 @@ fs.readdir(inputDir, (err, files) => {
             }
 
             const basename = path.basename(name, path.extname(name));
-            const outputName = path.join(outputDir, `${basename}.png`);
+            const outputName = path.join(outputDir, `${basename}.svg`);
             const writeStream = fs.createWriteStream(outputName);
 
             writeStream.on("finish", () => {
@@ -44,7 +44,7 @@ fs.readdir(inputDir, (err, files) => {
               reject(err);
             });
 
-            plantuml.generate(data).out.pipe(writeStream);
+            plantuml.generate(data, { format: "svg" }).out.pipe(writeStream);
           });
         })
     )

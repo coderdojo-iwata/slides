@@ -4,25 +4,45 @@ CoderDojo磐田で使用するスライドを公開しています。以下の�
 
 https://coderdojo-iwata.github.io/slides/public/
 
-Markdownからスライドを作成できる[Marp](https://marp.app/)を使用しています。
+スライドはMarkdownをinputに作成できる[Marp](https://marp.app/)を使用しています。
 
-## スライドの追加方法
+## ディレクトリ構成
 
-1. `slides`ディレクトリ配下に必要なファイルを作成、配置します。  
-    ```sh
-    /project-root
-    ├── slides/    # スライドの元となるMarkdownファイル
-    │   └── assets # 画像ファイル
-    ```
-    `start`コマンドでスライドのプレビューができます。
-    ```sh
-    npm run start
-    ```
-1. スライド生成コマンドを実行します。
-    ```sh
-    npm run build
-    ```
-1. 上記で生成したファイルをpushします。
+```
+.
+├── public     # GitHub Pages公開ファイル出力用（Repository管理対象外）
+├── plantuml   # PlantUML画像のinputとなるMarkdown
+├── scripts    # 各種作業を効率化するためのスクリプト
+├── slides     # スライドのinputとなるMarkdown
+|   └── assets # スライド用画像
+└── themes     # スライドのinputとなるMarkdown
+```
+
+## 使い方
+
+### スライドの追加方法
+
+`slides`ディレクトリ配下に必要なファイルを作成します。`start`コマンドでスライドのプレビューができます。
+ 
+ ```sh
+ npm run start
+ ```
+
+### スライド生成方法
+
+`build`コマンドを実行することで`public`ディレクトリにスライドファイル一式を出力します。`plantuml`ディレクトリにMarkdownを配置しておくと、Markdownと同名のSVGを`assets`ディレクトリに出力します。
+
+ ```sh
+ npm run build
+ ```
+
+### トップページのブラウザ表示
+
+`open`コマンドでスライドリンクの一覧を記載したトップページをブラウザ表示できます。
+
+```sh
+npm run open
+```
 
 ## ライセンス
 
