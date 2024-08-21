@@ -1,11 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
-// directory for GitHub Pages
-const docsDir = path.resolve(__dirname, "..", "public");
+const publicDir = path.resolve(__dirname, "..", "public");
 
 const descSortedLinks = fs
-  .readdirSync(docsDir)
+  .readdirSync(publicDir)
   .filter((filePath) => filePath.endsWith(".html") && filePath !== "index.html")
   .sort((a, b) => b.localeCompare(a))
   .map(
@@ -32,6 +31,6 @@ const content = `<!DOCTYPE html>
   </body>
   </html>`;
 
-fs.writeFileSync(path.join(docsDir, "index.html"), content);
+fs.writeFileSync(path.join(publicDir, "index.html"), content);
 
 console.log("index.html has been created with slide links.");
