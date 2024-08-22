@@ -45,9 +45,8 @@ npm run build
 
 - Marpで変換したスライドHTMLファイル
 - assets内に配置した成果物（画像など）
-  - `plantuml`ディレクトリ内のMarkdownを変換したSVGも含む
-    （例: `diagram.md` -> `diagram.svg`）
-- スライドHTMLファイルのリンク一覧にしたトップページ(`index.html`)
+  - `plantuml`ディレクトリ内のMarkdownを変換したSVGも含む (例: `diagram.md` -> `diagram.svg`)
+- スライドHTMLファイルのリンク一覧にしたトップページ (`index.html`)
 
 ### トップページのブラウザ表示
 
