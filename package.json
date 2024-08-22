@@ -14,7 +14,7 @@
     "generate:top": "node scripts/generate-top.js",
     "build": "npm-run-all clean deck generate:top",
     "open": "node scripts/open-top.js",
-    "start": "marp -ps ."
+    "start": "marp -ps slides"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^3.4.0",
