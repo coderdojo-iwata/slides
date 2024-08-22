@@ -26,31 +26,35 @@ https://marpit.marp.app/theme-css
 
 ## 使い方
 
-### スライドの追加方法
+### スライドのプレビュー
 
-`slides`ディレクトリ配下に必要なファイルを作成します。`start`コマンドでスライドのプレビューができます。
+```sh
+npm run start
+```
+
+ブラウザで`slides`ディレクトリ配下のファイル一覧を表示します。該当するMarkdownを選択することで、スライドのプレビューができます。
  
- ```sh
- npm run start
- ```
 
-### スライド生成方法
+### 公開用スライドファイル生成
 
-`build`コマンドを実行することで`public`ディレクトリにスライドファイル一式、スライドリンク一覧にしたトップページを出力します。
+```sh
+npm run build
+```
 
-`plantuml`ディレクトリ内のMarkdownと同名のSVGを`assets`ディレクトリに出力します。（例: `diagram.md` -> `diagram.svg`）
+`public`ディレクトリに公開用スライドファイルを出力します。
 
- ```sh
- npm run build
- ```
+- Marpで変換したスライドHTMLファイル
+- assets内に配置した成果物（画像など）
+  - `plantuml`ディレクトリ内のMarkdownを変換したSVGも含む (例: `diagram.md` -> `diagram.svg`)
+- スライドHTMLファイルのリンク一覧にしたトップページ (`index.html`)
 
 ### トップページのブラウザ表示
-
-`open`コマンドでトップページをブラウザ表示できます。
 
 ```sh
 npm run open
 ```
+
+`public`ディレクトリに出力したトップページをブラウザで表示します。
 
 ## ライセンス
 
