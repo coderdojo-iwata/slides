@@ -32,7 +32,7 @@ https://marpit.marp.app/theme-css
 npm run start
 ```
 
-ブラウザで`slides`ディレクトリ配下のファイル一覧を表示します。該当Markdownを選択することで、スライドのプレビューができます。
+ブラウザで`slides`ディレクトリ配下のファイル一覧を表示します。該当するMarkdownを選択することで、スライドのプレビューができます。
  
 
 ### 公開用スライドファイル生成
@@ -45,7 +45,8 @@ npm run build
 
 - Marpで変換したスライドHTMLファイル
 - assets内に配置した成果物（画像など）
-  - `plantuml`ディレクトリ内のMarkdownを変換したSVGも含む（例: `diagram.md` -> `diagram.svg`）
+  - `plantuml`ディレクトリ内のMarkdownを変換したSVGも含む
+    （例: `diagram.md` -> `diagram.svg`）
 - スライドHTMLファイルのリンク一覧にしたトップページ(`index.html`)
 
 ### トップページのブラウザ表示
@@ -53,6 +54,8 @@ npm run build
 ```sh
 npm run open
 ```
+
+`public`ディレクトリに出力したトップページをブラウザで表示します。
 
 ## ライセンス
 
