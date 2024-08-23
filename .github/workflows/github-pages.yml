@@ -25,6 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install font
+        run: sudo apt install fonts-noto
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
