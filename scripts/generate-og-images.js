@@ -11,13 +11,7 @@ const generateOgImage = async (basename) => {
   console.log(`run og script for ${basename}`);
 
   const markdownPath = path.join(__dirname, "..", "slides", `${basename}.md`);
-  const ogImagePath = path.join(
-    __dirname,
-    "..",
-    "public",
-    "og",
-    `${basename}.png`
-  );
+  const ogImagePath = path.join(__dirname, "..", "public", `${basename}.png`);
 
   await new Promise((resolve, reject) => {
     const ogImageGeneration = spawn(
