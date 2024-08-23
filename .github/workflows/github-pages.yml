@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - support-og-image-exp
+      - master
 
   workflow_dispatch:
 
