@@ -43,4 +43,4 @@ const markdownBaseNames = fs
   .filter((fileName) => fileName.endsWith(".md"))
   .map((fileName) => path.basename(fileName, path.extname(fileName)));
 
-Promise.all(markdownBaseNames.map(generateOgImage));
+markdownBaseNames.map(generateOgImage);
