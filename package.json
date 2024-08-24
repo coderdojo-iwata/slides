@@ -6,17 +6,17 @@
   "private": true,
   "scripts": {
     "start": "marp -ps slides",
-    "build": "npm-run-all clean deck generate:top generate:og-images generate:top-og-image",
+    "build": "npm-run-all clean deck generate:og-images generate:top generate:top-og-image",
     "open": "node scripts/open-top.js",
     "clean": "rimraf public && mkdir public",
     "deck": "npm-run-all generate:slides move:slides copy:assets generate:plantuml:images",
     "generate:og-images": "node scripts/generate-og-images.js",
+    "generate:top": "node scripts/generate-top.js",
     "generate:top-og-image": "node scripts/generate-top-og-image.js",
     "generate:slides": "marp --no-stdin slides/*",
     "move:slides": "find ./slides -name '*.html' -exec mv {} public/ \\;",
     "copy:assets": "ncp slides/assets public/assets",
     "generate:plantuml:images": "node scripts/generate-plantuml-images.js",
-    "generate:top": "node scripts/generate-top.js",
     "marp": "marp"
   },
   "devDependencies": {
