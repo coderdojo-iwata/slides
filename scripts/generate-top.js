@@ -7,11 +7,11 @@ const truncate = (target, maxLength = 30) =>
   target.length > maxLength ? target.slice(0, maxLength) + "..." : target;
 
 const generateSlideCardLink = (pathWithoutExtension) => {
-  const slideName = pathWithoutExtension + ".html";
-  const opgName = pathWithoutExtension + ".png";
+  const slideName = `${pathWithoutExtension}.html`;
+  const openGraphImageName = `${pathWithoutExtension}.png`;
   return `
     <a href="${slideName}" class="bg-cover bg-center h-64 rounded-lg shadow-md hover:shadow-lg transform transition duration-300 hover:scale-105"
-      style="background-image: url('${opgName}'); background-size: contain; background-repeat: no-repeat; background-position: center;">
+      style="background-image: url('${openGraphImageName}'); background-size: contain; background-repeat: no-repeat; background-position: center;">
       <div class="bg-gray-700 bg-opacity-50 h-full w-full rounded-lg p-4 flex items-end">
         <h2 class="text-white text-sm font-semibold">${truncate(slideName)}</h2>
       </div>
