@@ -19,6 +19,8 @@ const generateSlideCardLink = (pathWithoutExtension) => {
   `;
 };
 
+const canonicalUrl = process.env.URL || "http://localhost:8080";
+
 const descSortedSlideLinkCards = fs
   .readdirSync(publicDir)
   .filter((filePath) => filePath.endsWith(".html") && filePath !== "index.html")
@@ -33,6 +35,16 @@ const content = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CoderDojo磐田 スライド</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="CoderDojo磐田 スライド">
+  <meta property="og:description" content="過去の道場で使用したスライドです。学習や復習にお役立てください。">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:image:alt" content="CoderDojo磐田 スライド">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:locale" content="ja_JP">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
