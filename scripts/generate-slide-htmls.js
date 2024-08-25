@@ -13,19 +13,16 @@ fs.readdir(SLIDES_DIR, (err, files) => {
     return;
   }
 
-  files.forEach((file) => {
-    if (file.endsWith(".md")) {
-      const markdownPath = `${SLIDES_DIR}/${file}`;
-      const outputFileName = file.replace(".md", ".html");
-      const slideHtmlPath = `${PUBLIC_DIR}/${outputFileName}`;
-      const basenameWithoutExtension = path.parse(file).name;
-
-      const ogImagePath = `${canonicalUrl}/${basenameWithoutExtension}.png`;
-      const slideUrl = `${canonicalUrl}/${basenameWithoutExtension}.html`;
+  files
+    .filter((file) => file.endsWith(".md"))
+    .forEach((file) => {
+      const baseFileName = path.parse(file).name;
+      const ogImagePath = `${canonicalUrl}/${baseFileName}.png`;
+      const slideUrl = `${canonicalUrl}/${baseFileName}.html`;
+      const markdownPath = path.join(SLIDES_DIR, file);
+      const slideHtmlPath = path.join(PUBLIC_DIR, file.replace(".md", ".html"));
 
       const command = `npm run marp -- --og-image ${ogImagePath} --url ${slideUrl} ${markdownPath} -o ${slideHtmlPath}`;
-
-      console.log(command);
 
       exec(command, (error, stdout, stderr) => {
         if (error) {
@@ -37,6 +34,5 @@ fs.readdir(SLIDES_DIR, (err, files) => {
         console.log("stdout:", stdout);
         console.error("stderr:", stderr);
       });
-    }
-  });
+    });
 });
