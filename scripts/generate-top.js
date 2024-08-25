@@ -1,11 +1,28 @@
+/**
+ * @fileoverview Generates the index.html file with slide links.
+ */
+
 const fs = require("fs");
 const path = require("path");
 
-const publicDir = path.resolve(__dirname, "..", "public");
+const PROJECT_ROOT_DIR = process.cwd();
+const PUBLIC_DIR = path.resolve(PROJECT_ROOT_DIR, "public");
 
+/**
+ * Truncates the target string to the specified maximum length.
+ * e.g. truncate("Hello, World!", 5) => "Hello..."
+ * @param {*} target
+ * @param {*} maxLength
+ * @returns
+ */
 const truncate = (target, maxLength = 30) =>
   target.length > maxLength ? target.slice(0, maxLength) + "..." : target;
 
+/**
+ * Generates a slide card link.
+ * @param {*} pathWithoutExtension
+ * @returns
+ */
 const generateSlideCardLink = (pathWithoutExtension) => {
   const slideName = `${pathWithoutExtension}.html`;
   const openGraphImageName = `${pathWithoutExtension}.png`;
@@ -19,15 +36,18 @@ const generateSlideCardLink = (pathWithoutExtension) => {
   `;
 };
 
-const canonicalUrl = process.env.URL || "http://localhost:8080";
-
+/**
+ * generates the slide card links in descending order.
+ */
 const descSortedSlideLinkCards = fs
-  .readdirSync(publicDir)
+  .readdirSync(PUBLIC_DIR)
   .filter((filePath) => filePath.endsWith(".html") && filePath !== "index.html")
   .map((filePath) => path.parse(filePath).name)
   .sort((a, b) => b.localeCompare(a))
   .map(generateSlideCardLink)
   .join("\n");
+
+const canonicalUrl = process.env.URL || "http://localhost:8080";
 
 const content = `<!DOCTYPE html>
 <html lang="en">
@@ -39,7 +59,7 @@ const content = `<!DOCTYPE html>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="CoderDojo磐田 スライド">
   <meta property="og:description" content="過去の道場で使用したスライドです。学習や復習にお役立てください。">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:image" content="${canonicalUrl}/og-image.png">
   <meta property="og:image:alt" content="CoderDojo磐田 スライド">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonicalUrl}">
@@ -68,6 +88,6 @@ const content = `<!DOCTYPE html>
 </html>
 `;
 
-fs.writeFileSync(path.join(publicDir, "index.html"), content);
+fs.writeFileSync(path.join(PUBLIC_DIR, "index.html"), content);
 
 console.log("index.html has been created with slide links.");
