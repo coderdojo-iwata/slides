@@ -5,25 +5,28 @@
 const puppeteer = require("puppeteer");
 const path = require("path");
 
+const PROJECT_ROOT_DIR = process.cwd();
+const PUBLIC_DIR = path.join(PROJECT_ROOT_DIR, "public");
+const TOP_OG_IMAGE_PATH = path.join(PUBLIC_DIR, "og-image.png");
+
 /**
  * Generate an Open Graph image for the top page.
  */
-async function generateTopOgImage() {
+const generateTopOgImage = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 720 });
-  const outputDir = path.join(__dirname, "..", "public");
 
-  await page.goto(`file://${outputDir}/index.html`);
+  await page.goto(`file://${PUBLIC_DIR}/index.html`);
   await page.screenshot({
-    path: path.join(outputDir, "og-image.png"),
+    path: TOP_OG_IMAGE_PATH,
     width: 1280,
     height: 720,
   });
 
   await browser.close();
   console.log("A Open Graph image ogp-image.png has been generated.");
-}
+};
 
 generateTopOgImage()
   .catch(console.error)
