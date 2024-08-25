@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Generates a top OG image using Puppeteer.
+ */
+
 const puppeteer = require("puppeteer");
 const path = require("path");
 
