@@ -59,10 +59,10 @@ const content = `<!DOCTYPE html>
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="CoderDojo磐田 スライド">
   <meta property="og:description" content="過去の道場で使用したスライドです。学習や復習にお役立てください。">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:image" content="${canonicalUrl}/og-image.png">
   <meta property="og:image:alt" content="CoderDojo磐田 スライド">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="${canonicalUrl}/index.html">
+  <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:locale" content="ja_JP">
 
   <!-- Tailwind CSS CDN -->
