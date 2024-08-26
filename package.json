@@ -13,11 +13,11 @@
     "generate:og-images": "node scripts/generate-og-images.js",
     "generate:top": "node scripts/generate-top.js",
     "generate:top-og-image": "node scripts/generate-top-og-image.js",
-    "generate:slides": "marp --no-stdin slides/*",
+    "generate:slides": "node scripts/generate-slide-htmls.js",
     "move:slides": "find ./slides -name '*.html' -exec mv {} public/ \\;",
     "copy:assets": "ncp slides/assets public/assets",
     "generate:plantuml:images": "node scripts/generate-plantuml-images.js",
-    "marp": "marp"
+    "marp": "marp --no-stdin"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^3.4.0",
